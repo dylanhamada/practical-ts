@@ -74,8 +74,8 @@ let prices: number[] = [100, 75, 42];
 
 let fruit: string[] = ['apple', 'orange'];
 
-let temperatures: number[] = [20, 25, 30]
+let temperatures: number[] = [20, 25, 30];
 
-let colors: string[] ['red', 'green', 'blue']
+let colors: string[] = ['red', 'green', 'blue'];
 
-let mixedArray: (number | string)[] = [1, two, 3]
+let mixedArray: (number | string)[] = [1, 'two', 3];
