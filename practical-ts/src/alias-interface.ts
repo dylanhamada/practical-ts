@@ -82,3 +82,84 @@ const bob: Manager = { id: 3, name: 'bob', employees: [alice, steve] };
 printStaffDetails(alice);
 printStaffDetails(steve);
 printStaffDetails(bob);
+
+// An intersection type combines multiple aliases to basically extend one
+
+type Book = { id: number; name: string; price: number };
+
+// Intersection type extending the Book alias by adding one additional property
+
+type DiscountedBook = Book & { discount: number };
+
+const book1: Book = {
+  id: 1,
+  name: 'how to cook a dragon',
+  price: 15,
+};
+
+const book2: Book = {
+  id: 2,
+  name: 'the secret life of unicorns',
+  price: 18,
+};
+
+const discountedBook: DiscountedBook = {
+  id: 3,
+  name: 'gnomes vs goblins',
+  price: 25,
+  discount: 0.15,
+};
+
+// Using computed property names when defining an alias
+
+const propName = 'age';
+
+type Animal = {
+  [propName]: number;
+};
+
+let tiger: Animal = { [propName]: 5 };
+
+// An interface type is similar to the alias type
+
+interface BookInterface {
+  // The readonly modifier prevents the property from being modified after it's declared
+  readonly isbn: number;
+  title: string;
+  author: string;
+  // The '?' means the property is optional
+  genre?: string;
+  // Method
+  printAuthor(): void;
+  printTitle(message: string): string;
+  printSomething: (someValue: number) => number;
+}
+
+const deepWork: BookInterface = {
+  isbn: 123,
+  title: 'deep work',
+  author: 'cal newport',
+  genre: 'self-help',
+  printAuthor() {
+    console.log(this.author);
+  },
+  printTitle(message) {
+    return `${this.title} ${message}`;
+  },
+  // First option
+  // printSomething: function (someValue) {
+  //   return someValue;
+  // },
+  // Second option
+  // printSomething: (someValue) => {
+  //   return someValue;
+  // },
+  // Third option
+  printSomething(someValue) {
+    return someValue;
+  },
+};
+
+deepWork.printAuthor();
+console.log(deepWork.printTitle('is an awesome book.'));
+console.log(deepWork.printSomething(34));
