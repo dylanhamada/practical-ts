@@ -102,3 +102,25 @@ function sum(message: string, ...numbers: number[]): string {
 
 let result2 = sum('The total is: ', 1, 2, 3, 4, 5);
 console.log(result2);
+
+function logMessage(message: string): void {
+  console.log(message);
+}
+
+logMessage('Hello, TypeScript');
+
+// Your task is to create a function named processInput that accepts a parameter of a union type string | number. The function should behave as follows:
+
+// - If the input is of type number, the function should multiply the number by 2 and log the result to the console.
+// - If the input is of type string, the function should convert the string to uppercase and log the result to the console.
+
+function processInput(param: string | number): void {
+  if (typeof param === 'number') {
+    return console.log(param * 2);
+  }
+
+  return console.log(param.toUpperCase());
+}
+
+processInput(12);
+processInput('omg');
