@@ -121,6 +121,7 @@ type Animal = {
 let tiger: Animal = { [propName]: 5 };
 
 // An interface type is similar to the alias type
+// Like with aliases, interface best practice is to start the name with a capital letter
 
 interface BookInterface {
   // The readonly modifier prevents the property from being modified after it's declared
@@ -262,3 +263,6 @@ const manager: ManagerInt = {
 };
 
 manager.managePeople();
+
+// Key differences between type aliases and interfaces
+// Type aliases can represent primitive types, union types, intersection types, tuples, etc, while interfaces are primarily used to represent the shape of an object

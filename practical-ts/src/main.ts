@@ -4,7 +4,8 @@ import viteLogo from '/vite.svg';
 import { setupCounter } from './counter.ts';
 // import './type-annotations-arrays.ts';
 // import './objects-functions.ts';
-import './alias-interface.ts';
+// import './alias-interface.ts';
+import './interface-challenge.ts';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
