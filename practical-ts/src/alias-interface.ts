@@ -173,3 +173,92 @@ console.log(deepWork.printSomething(34));
 // Also inside the interface, define any methods that the object should have. In this case, we have upgradeRam, which is a function that takes a number and returns a number.
 // Now that we have our interface, we can create an object that adheres to this interface. This object should have all the properties defined in the interface (except for optional ones, which are... optioanl), and the methods should be implemented.
 // Finally, we can use our object. We can call its upgradeRam method to increase its RAM.
+
+interface Computer {
+  readonly id: number;
+  brand: string;
+  ram: number;
+  storage?: number;
+  upgradeRam(increase: number): number;
+}
+
+const laptop: Computer = {
+  id: 1,
+  brand: 'random brand',
+  ram: 8,
+  upgradeRam(amount) {
+    this.ram += amount;
+    return this.ram;
+  },
+};
+
+laptop.storage = 256;
+console.log(laptop.upgradeRam(4));
+
+console.log(laptop);
+
+// Declaring an interface with a method
+interface Person {
+  name: string;
+  getDetails(): string;
+}
+
+interface DogOwner {
+  dogName: string;
+  getDogDetails(): string;
+}
+
+// We can add properties to an existing interface
+interface Person {
+  age: number;
+}
+
+const person: Person = {
+  name: 'john',
+  age: 30,
+  getDetails() {
+    return `Name: ${this.name}, Age: ${this.age}`;
+  },
+};
+
+console.log(person.getDetails());
+
+// We can extend an interface, taking an existing interface and adding new properties or methods under a new interface name
+// Here, we extend the Person interface and call it EmployeeInt
+interface EmployeeInt extends Person {
+  employeeId: number;
+}
+
+const employee: EmployeeInt = {
+  name: 'jane',
+  age: 28,
+  employeeId: 123,
+  getDetails() {
+    return `Name: ${this.name}, Age: ${this.age}, Employee ID: ${this.employeeId}`;
+  },
+};
+
+console.log(employee.getDetails());
+
+// We can also extend multiple interfaces
+// Here, we create a new interface, ManagerInt, by extending the Person and DogOwner interfaces
+interface ManagerInt extends Person, DogOwner {
+  managePeople(): void;
+}
+
+const manager: ManagerInt = {
+  name: 'bob',
+  age: 35,
+  dogName: 'rex',
+  getDetails() {
+    return `Name: ${this.name}, Age: ${this.age}`;
+  },
+  getDogDetails() {
+    return `Name: ${this.dogName}`;
+  },
+  managePeople() {
+    console.log('Managing people...');
+  },
+};
+
+manager.managePeople();
