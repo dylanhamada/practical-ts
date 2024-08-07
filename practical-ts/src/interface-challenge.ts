@@ -45,8 +45,10 @@ const employee: Person | DogOwner | Manager = getEmployee();
 console.log(employee);
 
 // Define the isManager function Define a function called isManager that takes an object of type Person | DogOwner | Manager and returns a boolean. This function should check if the managePeople method exists on the object, and return true if it does and false if it doesn't. The return type of this function should be a type predicate: obj is Manager.
-function isManager(obj: Person | DogOwner | Manager): boolean {
+function isManager(obj: Person | DogOwner | Manager): obj is Manager {
   return 'managePeople' in obj;
 }
 
-console.log(isManager(employee));
+if (isManager(employee)) {
+  employee.delegateTasks();
+}
