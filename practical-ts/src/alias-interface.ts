@@ -272,3 +272,5 @@ manager.managePeople();
 
 // Interfaces can be implemented by classes, while type aliases cannot.
 // Type aliases can use computed properties, while interfaces cannot.
+
+let someValue: any = 'this is a string';
