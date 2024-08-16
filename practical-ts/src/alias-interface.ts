@@ -41,7 +41,7 @@ setTheme('dark');
 
 // Challenge
 
-// Define the Employee type: Create a type Employee with properties id (number), name (string), and department (string).
+// Define the Employee type: Create an alias type Employee with properties id (number), name (string), and department (string).
 
 type Employee = {
   id: number;
@@ -49,7 +49,7 @@ type Employee = {
   department: string;
 };
 
-// Define the Manager type: Create a type Manager with properties id (number), name (string), and employees (an array of Employee).
+// Define the Manager type: Create an alias type Manager with properties id (number), name (string), and employees (an array of Employee).
 
 type Manager = {
   id: number;
