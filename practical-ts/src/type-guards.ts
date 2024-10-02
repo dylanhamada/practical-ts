@@ -82,3 +82,39 @@ function printLength(str: string | null | undefined): void {
 // printLength(undefined);
 // printLength('100');
 // printLength(null);
+
+// Discriminated unions are a feature that allows us to create types that can take on multiple forms, where each form is distinguished by a specific discriminant property (often called a "tag").
+
+// We define the individual types
+interface Circle {
+  kind: 'circle'; // Discriminant (or tag)
+  radius: number;
+}
+
+interface Square {
+  kind: 'square'; // Discriminant (or tag)
+  sideLength: number;
+}
+
+interface Rectangle {
+  kind: 'rectangle'; // Discriminant (or tag)
+  width: number;
+  height: number;
+}
+
+// Discriminated Union
+type Shape = Circle | Square | Rectangle;
+
+// When we work with a Shape type, TypeScript can use the kind property to narrow down the type in a type-safe way.
+function getArea(shape: Shape): number {
+  switch (shape.kind) {
+    case 'circle':
+      return Math.PI * shape.radius ** 2; // TypeScript knows shape is Circle
+    case 'square':
+      return shape.sideLength ** 2; // TypeScript knows shape is Square
+    case 'rectangle':
+      return shape.width * shape.height; // TypeScript knows shape is Rectangle
+  }
+}
+
+// If we forget to handle one of the shapes in the switch statement, TypeScript will warn us.
