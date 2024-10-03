@@ -38,7 +38,7 @@ const genericString: GenericInterface<string> = {
   },
 };
 
-// The return type here must be Promise<string>, because by default, an async function returns a promise, so we cannot just define the return type as 'string'
+// The return type here must be Promise<string>, because by default, an async function returns a promise, so we cannot just assert the return type as 'string'
 async function someFunc(): Promise<string> {
   return 'hello world';
 }
@@ -52,7 +52,7 @@ function generateStringArray(length: number, value: string): string[] {
   return result;
 }
 
-// Generic function that can achieve the same results as the above non-generic function
+// Generic function that can achieve the same results as the above non-generic function, and comes with the flexibility of working with any type
 function createArray<T>(length: number, value: T): Array<T> {
   let result: T[] = [];
   result = Array(length).fill(value);
@@ -80,3 +80,17 @@ function processValue<T extends string>(value: T): T {
 }
 
 processValue('hello');
+
+// We can assert that the default type be 'any'
+interface StoreData<T = any> {
+  data: T[];
+}
+
+const storeNumbers: StoreData<number> = {
+  data: [1, 2, 3, 4],
+};
+
+// Because we asserted that the default type is 'any' in the type definition, we don't need to define a type when defining this randomStuff object
+const randomStuff: StoreData = {
+  data: ['random', 1],
+};
