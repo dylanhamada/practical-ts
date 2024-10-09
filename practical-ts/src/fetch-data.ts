@@ -1,4 +1,5 @@
 // Zod is a TypeScript-first schema declaration and validation library for handling data validation, parsing, and type inference
+// Zod allows type validation at run time, not just at build time
 import { z } from 'zod';
 
 const url = 'https://www.course-api.com/react-tours-project';

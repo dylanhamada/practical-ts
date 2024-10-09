@@ -10,7 +10,7 @@ import { setupCounter } from './counter.ts';
 // import './tuples-enums-challenge.ts';
 // import './type-guards.ts';
 // import './generics.ts';
-import './fetch-data.ts';
+// import './fetch-data.ts';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
