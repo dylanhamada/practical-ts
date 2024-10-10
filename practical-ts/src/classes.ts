@@ -32,3 +32,72 @@ class Book {
 const deepWork = new Book('Deep Work', 'Cal Newport');
 deepWork.checkOut();
 console.log(deepWork.isCheckedOut());
+
+class Novel {
+  private checkedOut: boolean = false;
+
+  constructor(
+    readonly title: string,
+    public author: string,
+    private someValue: number
+  ) {}
+
+  public getSomeValue() {
+    return this.someValue;
+  }
+}
+
+const robustWork = new Novel('Deep Work', 'Cal Newport', 45);
+console.log(robustWork.getSomeValue());
+
+class Comic {
+  private checkedOut: boolean = false;
+
+  constructor(readonly title: string, public author: string) {}
+
+  // A 'getter' method returns properties
+  get info() {
+    return `${this.title} by ${this.author}`;
+  }
+
+  // A 'setter' method modifies properties
+  private set checkOut(checkedOut: boolean) {
+    this.checkedOut = checkedOut;
+  }
+
+  get checkOut() {
+    return this.checkedOut;
+  }
+
+  public get someInfo() {
+    this.checkOut = true;
+    return `${this.title} by ${this.author}`;
+  }
+}
+
+const goodWork = new Comic('Deep Work', 'Cal Newport');
+console.log(goodWork.info);
+// goodWork.checkOut = true;
+console.log(goodWork);
+console.log(goodWork.someInfo);
+console.log(goodWork.checkOut);
+
+interface IPerson {
+  name: string;
+  age: number;
+  greet(): void;
+}
+
+// A class can implement an interface
+class Person implements IPerson {
+  constructor(public name: string, public age: number) {}
+
+  greet(): void {
+    console.log(
+      `Hello, my name is ${this.name} and I'm ${this.age} years old.`
+    );
+  }
+}
+
+const hipster = new Person('shakeAndBake', 100);
+hipster.greet();
