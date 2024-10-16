@@ -1,6 +1,6 @@
 // In TypeScript classes, the same rules apply as other data types
 class Book {
-  // One difference is that constructor property types have to be defined before the constructor method
+  // Constructor property types can be defined before the constructor method
   title: string;
   author: string;
   // We can define a property checkedOut that defaults as false
@@ -36,6 +36,7 @@ console.log(deepWork.isCheckedOut());
 class Novel {
   private checkedOut: boolean = false;
 
+  // When defining properties directly in the constructor, we have to use the access keywords like "public", "private", or "readonly"
   constructor(
     readonly title: string,
     public author: string,
